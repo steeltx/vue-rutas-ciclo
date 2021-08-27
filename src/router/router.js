@@ -9,7 +9,11 @@ const routes = [
     },
     { 
       path: '/:id', component: () => import(/*webpackChunkName: "PokemonPage"*/'../modules/pokemon/pages/PokemonPage'),
-      name: 'pokemon-id'
+      name: 'pokemon-id',
+      props:(route) => {
+        const id = Number(route.params.id)
+        return isNaN( id ) ? { id: 1 } : { id }
+      }
     },
     { 
       path: '/:pathMach(.*)*', component:  () => import(/*webpackChunkName: "NoPageFound"*/'../modules/shared/pages/NoPageFound')  
