@@ -8,7 +8,8 @@ const routes = [
       path: '/about', component: () => import(/*webpackChunkName: "AboutPage"*/'../modules/pokemon/pages/AboutPage') 
     },
     { 
-      path: '/id', component: () => import(/*webpackChunkName: "PokemonPage"*/'../modules/pokemon/pages/PokemonPage')  
+      path: '/:id', component: () => import(/*webpackChunkName: "PokemonPage"*/'../modules/pokemon/pages/PokemonPage'),
+      name: 'pokemon-id'
     },
     { 
       path: '/:pathMach(.*)*', component:  () => import(/*webpackChunkName: "NoPageFound"*/'../modules/shared/pages/NoPageFound')  
